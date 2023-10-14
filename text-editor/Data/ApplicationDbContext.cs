@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using text_editor.Models;
 
 namespace text_editor.Data
 {
@@ -9,5 +11,6 @@ namespace text_editor.Data
             : base(options)
         {
         }
+        public DbSet<text_editor.Models.UserFiles>? UserFiles { get; set; }
     }
 }
