@@ -168,6 +168,13 @@ namespace text_editor.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //share
+
+        public IActionResult Share()
+        {
+            return View();
+        }
+
         private bool DocumentExists(int id)
         {
           return (_context.Document?.Any(e => e.Id == id)).GetValueOrDefault();
