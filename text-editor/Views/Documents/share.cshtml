@@ -1,0 +1,36 @@
+﻿@model text_editor.Models.share
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<IdentityUser> userManager;
+<h4>share</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="share">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="Sender" class="form-control" value="@userManager.GetUserId(User)" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Reciever" class="control-label"></label>
+                <input asp-for="Reciever" class="form-control" />
+                <span asp-validation-for="Reciever" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DocumentId" class="control-label"></label>
+                <input asp-for="DocumentId" class="form-control" />
+                <span asp-validation-for="DocumentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

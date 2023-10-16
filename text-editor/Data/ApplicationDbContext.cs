@@ -12,5 +12,7 @@ namespace text_editor.Data
         {
         }
         public DbSet<text_editor.Models.UserFiles>? UserFiles { get; set; }
+        public DbSet<text_editor.Models.Document>? Document { get; set; }
+        public DbSet<text_editor.Models.share>? share { get; set; }
     }
 }
