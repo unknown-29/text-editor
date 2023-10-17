@@ -1,8 +1,20 @@
 ﻿@model IEnumerable<text_editor.Models.UserFiles>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
+<div class="row">
+    @foreach (var document in Model)
+    {
+        <div class="col-2 justify-content-center align-items-center border" style="background-color:cornsilk;border-radius:18px;margin:10px;max-width:130px">
+            <div class="d-flex justify-content-center align-items-center" style="font-size:100px;">
+                <a style="text-decoration:none; color: black;" asp-action="Edit" asp-route-id="@document.Id"><img src="~/Images/docu.png" alt="ads" style="width:100px" /></a>
+            </div>
+            <span class="text-center d-flex align-items-center justify-content-center " style="font-weight: bold">@document.name</span>
+        </div>
+
+    }
+</div>
+
+
 <table class="table">
     <thead>
         <tr>

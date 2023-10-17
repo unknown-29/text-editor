@@ -18,7 +18,11 @@
                 <div style="display: flex; align-items:center;">
                     <input asp-for="Title" class="form-control" value="New Untitled Doc" />
                     <span asp-validation-for="Title" class="text-danger"></span>
-                    <button style="margin-left:40px" asp-action="Share">Share</button>
+                    <div class="form-group" style="margin:10px">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+      
+
                 </div>
             </div>
             <div class="form-group">
@@ -26,9 +30,7 @@
                 <textarea id="tiny" style="width: 60vw; height: 80vh" asp-for="Content"></textarea>
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+           
         </form>
     </div>
 </div>

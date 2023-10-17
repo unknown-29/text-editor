@@ -19,7 +19,12 @@
                 <div style="display: flex; align-items:center;">
                     <input asp-for="Title" class="form-control" />
                     <span asp-validation-for="Title" class="text-danger"></span>
-                    <button style="margin-left:40px" asp-action="Share">Share</button>
+                    <div class="form-group" style="margin-left:10px;margin-right:10px">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                    <a asp-controller="Documents" asp-action="Share" asp-route-id="@Model.Id" class="btn btn-secondary" style="background-color:midnightblue">Share</a>
+                    <a asp-controller="Documents" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-secondary" style="margin:10px;background-color:darkred">Delete</a>
+                    
                 </div>
             </div>
             <div class="form-group">
