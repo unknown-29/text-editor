@@ -1,0 +1,66 @@
+﻿@model dynamic
+
+@{
+    ViewData["Title"] = "Index";
+    var ownedDocuments = Model.Owned;
+    var sharedDocuments = Model.Shared;
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>UserFile</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <h4>Owned</h4>
+        @foreach (var document in ownedDocuments)
+        {
+            <tr>
+                <td>@document.Title</td>
+                <td>@document.Content</td>
+                <td>@document.UserFile.Id</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@document.Id">Edit</a> |
+                    <a asp-action="Share" asp-route-id="@document.Id">Share</a> |
+                    <a asp-action="Details" asp-route-id="@document.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@document.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>UserFile</th>
+            <th></th>
+        </tr>
+    </thead>
+    <h4>Shared</h4>
+    @foreach (var document in sharedDocuments)
+    {
+        <tr>
+            <td>@document.Title</td>
+            <td>@document.Content</td>
+            <td>@document.UserFile.Id</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@document.Id">Edit</a> |
+                <a asp-action="Share" asp-route-id="@document.Id">Share</a> |
+                <a asp-action="Details" asp-route-id="@document.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@document.Id">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
