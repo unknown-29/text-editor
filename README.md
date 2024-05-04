@@ -4,7 +4,7 @@ WordWave is a cutting-edge online document creation and editing platform that co
 With WordWave, you can effortlessly create, edit, and collaborate on documents from anywhere with an internet connection. Whether you're working on important reports, collaborative projects, or creative writing, WordWave empowers you with an array of powerful tools and features, making your document management a breeze.
 
 * tech stack : .net core mvc
-
+* demo video : https://youtu.be/FdUhGBDrSYw?feature=shared
   # Preview
 
 <img src="https://github.com/unknown-29/word-wave/assets/107257619/3c9b29aa-1c04-4a3e-b265-8c7f208317e9" width=65%/>
