@@ -5,7 +5,6 @@ With WordWave, you can effortlessly create, edit, and collaborate on documents f
 
 ### Try <a href="https://wordwave-uyv9.onrender.com">WordWave</a> Now.
 
-* deployment : https://wordwave-uyv9.onrender.com
 * tech stack : .NET Core mvc (v6.0)
 * demo video : https://youtu.be/FdUhGBDrSYw?feature=shared
   # Preview
