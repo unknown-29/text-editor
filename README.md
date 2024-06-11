@@ -36,5 +36,5 @@ docker pull dm2903/wordwave
 ```sh
 docker run --env=ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true --env=ASPNETCORE_ENVIRONMENT=Development --env=DOTNET_USE_POLLING_FILE_WATCHER=1 --env=NUGET_PACKAGES=/.nuget/fallbackpackages --env=NUGET_FALLBACK_PACKAGES=/.nuget/fallbackpackages --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=ASPNETCORE_URLS=http://+:80 --env=DOTNET_RUNNING_IN_CONTAINER=true --env=DOTNET_VERSION=6.0.31 --env=ASPNET_VERSION=6.0.31 --env=Server= --env=Database= --env=User= --env=Password= -t -p 8080:80 dm2903/wordwave:latest
 ```
-
+Note: Remember to set the values for <code>Server, Database, User and Password</code> in the above command.
 #### Now, the webapp should be running at http://localhost:8080/
