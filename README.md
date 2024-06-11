@@ -15,13 +15,6 @@ With WordWave, you can effortlessly create, edit, and collaborate on documents f
 <img src="https://github.com/unknown-29/word-wave/assets/107257619/9ec6038f-1422-49f7-a5d2-338ed6180047" width=65%/>
 <img src="https://github.com/unknown-29/word-wave/assets/107257619/4df744bf-5181-4341-83ad-27211ede0523" width=65%/>
 
-## Run a migration first
-enable-migrations<br/>
-add-migration "migration_name_can_be_given_any"<br/>
-
-## Update Database
-update-database
-
 ## Want a quick spin up?
 ### Docker is to the rescue. WordWave is dockerized. Just follow the quick and easy steps provided below:
 
@@ -29,7 +22,7 @@ update-database
 
 #### 2. Now pull <code>dm2903/wordwave:2.0</code> (use latest version current 2.0) image from dockerhub
 ```sh
-docker pull dm2903/wordwave
+docker pull dm2903/wordwave:2.0 # remember to pull the latest most recent tag like for now its 2.0
 ```
 
 #### 3. Now just run the container and provide the essential <code>Environment variables</code>
