@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,7 @@ namespace text_editor.Controllers
             _context = context;
         }
 
+        [Authorize]
         // GET: UserFiles
         public async Task<IActionResult> Index()
         {
@@ -28,6 +30,7 @@ namespace text_editor.Controllers
                           Problem("Entity set 'ApplicationDbContext.UserFiles'  is null.");
         }
 
+        [Authorize]
         // GET: UserFiles/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -46,12 +49,14 @@ namespace text_editor.Controllers
             return View(userFiles);
         }
 
+        [Authorize]
         // GET: UserFiles/Create
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize]
         // POST: UserFiles/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -65,6 +70,7 @@ namespace text_editor.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize]
         // GET: UserFiles/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -81,6 +87,7 @@ namespace text_editor.Controllers
             return View(userFiles);
         }
 
+        [Authorize]
         // POST: UserFiles/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -116,6 +123,7 @@ namespace text_editor.Controllers
             return View(userFiles);
         }
 
+        [Authorize]
         // GET: UserFiles/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -134,6 +142,7 @@ namespace text_editor.Controllers
             return View(userFiles);
         }
 
+        [Authorize]
         // POST: UserFiles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -153,6 +162,7 @@ namespace text_editor.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize]
         private bool UserFilesExists(int id)
         {
           return (_context.UserFiles?.Any(e => e.Id == id)).GetValueOrDefault();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +22,7 @@ namespace text_editor.Controllers
             _context = context;
         }
 
+        [Authorize]
         // GET: Documents
         public async Task<IActionResult> Index()
         {
@@ -31,6 +33,7 @@ namespace text_editor.Controllers
             return View(new {Shared = await applicationDbContext.Where(doc => ufs.Contains(doc.FileId)).ToListAsync(), Owned= await applicationDbContext.Where(doc => ufo.Contains(doc.FileId)).ToListAsync() });
         }
 
+        [Authorize]
         // GET: Documents/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -50,6 +53,7 @@ namespace text_editor.Controllers
             return View(document);
         }
 
+        [Authorize]
         // GET: Documents/Create
         public IActionResult Create()
         {
@@ -60,6 +64,7 @@ namespace text_editor.Controllers
         // POST: Documents/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Content,FileId")] Document document)
@@ -79,6 +84,8 @@ namespace text_editor.Controllers
             //ViewData["FileId"] = new SelectList(_context.UserFiles, "Id", "Id", document.FileId);
             //return View(document);
         }
+
+        [Authorize]
         // GET: Documents/Share/5
         public async Task<IActionResult> Share(int? id)
         {
@@ -89,6 +96,8 @@ namespace text_editor.Controllers
             var document = await _context.Document.FindAsync(id);
             return View (document);
         }
+
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Share(int id)
@@ -111,6 +120,8 @@ namespace text_editor.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+
+        [Authorize]
         // GET: Documents/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -128,6 +139,7 @@ namespace text_editor.Controllers
             return View(document);
         }
 
+        [Authorize]
         // POST: Documents/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -164,6 +176,7 @@ namespace text_editor.Controllers
             //return View(document);
         }
 
+        [Authorize]
         // GET: Documents/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -183,6 +196,7 @@ namespace text_editor.Controllers
             return View(document);
         }
 
+        [Authorize]
         // POST: Documents/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -204,6 +218,7 @@ namespace text_editor.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize]
         private bool DocumentExists(int id)
         {
           return (_context.Document?.Any(e => e.Id == id)).GetValueOrDefault();
