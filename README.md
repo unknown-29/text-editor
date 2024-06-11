@@ -27,7 +27,7 @@ update-database
 
 #### 1. Install <a href='https://docs.docker.com/engine/install/'>Docker</a>
 
-#### 2. Now pull <code>dm2903/wordwave:latest</code> image from dockerhub
+#### 2. Now pull <code>dm2903/wordwave:2.0</code> (use latest version current 2.0) image from dockerhub
 ```sh
 docker pull dm2903/wordwave
 ```
